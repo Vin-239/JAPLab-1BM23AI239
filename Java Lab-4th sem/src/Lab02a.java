@@ -7,7 +7,6 @@ public class Lab02a{
     boolean booleanVal = false;
     char charVal = ' ';
     int a, b;
-    int sum = 0;
 
     public void accept(){
         Scanner sc = new Scanner(System.in);
@@ -55,30 +54,9 @@ public class Lab02a{
         System.out.println("boolean: " + booleanUnbox);
     }
 
-    public Integer boxSum(int a, int b) {
-        Integer aVal = a;
-        Integer bVal = b;
-
-        return (aVal + bVal);
-    }
-
-    public int unboxSum(int val) {
-        sum = boxSum(a, b);
-        return sum;
-    }
-
-    public void display() {
-        Integer boxVal = boxSum(a, b);
-        int unboxVal = unboxSum(boxVal);
-        System.out.println("Boxed sum: " + boxVal);
-        System.out.println("Unboxed sum: " + unboxVal);
-    }
-
     public static void main(String[] args) {
         Lab02a main = new Lab02a();
         main.accept();
         main.convertDisplay();
-        //obj.accept();
-        //obj.display();
     }
-}
+ }

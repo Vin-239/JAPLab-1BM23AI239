@@ -36,7 +36,7 @@ public class Lab03b {
         System.out.println("New appended string: " + buffer.toString());
     }
     public static void main(String[] args) {
-        Lab03b o = new Lab03b();
+        Lab03b o =  new Lab03b();
 
         o.checkCapacity();
         o.reverseUpperString();
