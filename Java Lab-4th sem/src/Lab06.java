@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class Lab06<T> {
-    private Vector<T> queue;
-    private int front, rear, size, capacity;
+    Vector<T> queue;
+    int front, rear, size, capacity;
 
     public Lab06(int capacity) {
         this.capacity = capacity;

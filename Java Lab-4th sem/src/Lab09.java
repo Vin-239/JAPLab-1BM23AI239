@@ -4,8 +4,8 @@ interface Stack {
 }
 
 class FixedStack implements Stack {
-    private int[] stack;
-    private int top;
+    int[] stack;
+    int top;
 
     FixedStack(int size) {
         stack = new int[size];
@@ -29,8 +29,8 @@ class FixedStack implements Stack {
 }
 
 class DynamicStack implements Stack {
-    private int[] stack;
-    private int top;
+    int[] stack;
+    int top;
 
     DynamicStack() {
         stack = new int[2];

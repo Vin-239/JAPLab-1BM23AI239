@@ -26,7 +26,7 @@ class Item {
 }
 
 public class Lab07 {
-    private Vector<Item> inventory = new Vector<>();
+    Vector<Item> inventory = new Vector<>();
 
     public void addItem(int id, String name, int quantity, double price) {
         inventory.add(new Item(id, name, quantity, price));
