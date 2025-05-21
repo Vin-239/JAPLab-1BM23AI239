@@ -21,7 +21,7 @@ class Product {
 }
 
 public class Lab05 {
-    private Vector<Product> inventory;
+    Vector<Product> inventory;
 
     public Lab05() {
         inventory = new Vector<>();

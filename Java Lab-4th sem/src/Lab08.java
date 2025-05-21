@@ -8,7 +8,7 @@ class Account {
     int accNo;
     String name;
     double balance;
-    final static double MIN_BALANCE = 500;
+    double MIN_BALANCE = 500;
 
     Account(int accNo, String name, double balance) {
         this.accNo = accNo;
@@ -46,7 +46,7 @@ public class Lab08 {
             a1.withdraw(800); // Should succeed
             a2.withdraw(1600); // Should throw exception
         } catch (LessBalanceException e) {
-            System.out.println("Exception: " + e.getMessage());
+            System.out.println("\nException: " + e.getMessage());
         }
 
         a1.showBalance();
