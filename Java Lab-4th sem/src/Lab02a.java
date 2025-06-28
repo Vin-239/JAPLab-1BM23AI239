@@ -6,7 +6,6 @@ public class Lab02a{
     double doubleVal = 0;
     boolean booleanVal = false;
     char charVal = ' ';
-    int a, b;
 
     public void accept(){
         Scanner sc = new Scanner(System.in);
@@ -23,11 +22,7 @@ public class Lab02a{
         System.out.print("Enter a character: ");
         charVal = sc.next().charAt(0);
 
-        System.out.print("Enter number 1: ");
-        a = sc.nextInt();
-
-        System.out.print("Enter number 2: ");
-        b = sc.nextInt();
+        sc.close();
     }
 
     public void convertDisplay(){

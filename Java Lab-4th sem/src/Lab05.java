@@ -21,40 +21,30 @@ class Product {
 }
 
 public class Lab05 {
-    Vector<Product> inventory;
-
-    public Lab05() {
-        inventory = new Vector<>();
-    }
+    Vector<Product> inventory = new Vector<>();
 
     public void addProduct(Product product) {
         inventory.add(product);
         System.out.println(product.getName() + " added to inventory.");
     }
 
-    public void removeProduct(String productName) {
-        boolean removed = false;
-        for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getName().equalsIgnoreCase(productName)) {
-                System.out.println("\n" + inventory.get(i).getName() + " removed from inventory.");
-                inventory.remove(i);
-                removed = true;
-                break;
-            }
-        }
-        if (!removed) {
-            System.out.println("Product not found: " + productName);
+    public void removeProduct(String name) {
+        if(inventory.removeIf(product -> product.name == name)) {
+            System.out.println("\nRemoved product with name: " + name);
+        }else{
+            System.out.println("\nNo product name found.");
         }
     }
+
 
     public void displayInventory() {
         if (inventory.isEmpty()) {
             System.out.println("Inventory is empty.");
-            return;
-        }
-        System.out.println("\nCurrent Inventory:");
-        for (Product product : inventory) {
-            System.out.println(product);
+        }else{
+            System.out.println("\nCurrent Inventory:");
+            for (Product product : inventory) {
+                System.out.println(product);
+            }
         }
     }
 

@@ -10,18 +10,18 @@ class Account {
     double balance;
     double MIN_BALANCE = 500;
 
-    Account(int accNo, String name, double balance) {
+    public Account(int accNo, String name, double balance) {
         this.accNo = accNo;
         this.name = name;
         this.balance = balance;
     }
 
-    void deposit(double amount) {
+    public void deposit(double amount) {
         balance += amount;
         System.out.println(name + " deposited: Rs " + amount);
     }
 
-    void withdraw(double amount) throws LessBalanceException {
+    public void withdraw(double amount) throws LessBalanceException {
         if (balance - amount < MIN_BALANCE) {
             throw new LessBalanceException("Withdrawal not allowed. Minimum balance Rs 500 must be maintained.");
         }
@@ -29,7 +29,7 @@ class Account {
         System.out.println(name + " withdrew: Rs " + amount);
     }
 
-    void showBalance() {
+    public void showBalance() {
         System.out.println(name + "'s current balance: Rs " + balance);
     }
 }

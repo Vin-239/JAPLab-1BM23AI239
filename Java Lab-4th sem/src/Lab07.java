@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.util.Vector;
 
 class Item {
@@ -14,8 +13,8 @@ class Item {
         this.price = price;
     }
 
-    public void display() {
-        System.out.println("ID: " + id + ", Name: " + name + ", Quantity: " + quantity + ", Price: " + price);
+    public String toString() {
+        return "ID: " + id + ", Name: " + name + ", Quantity:" + quantity + ", price: " + price;
     }
 
     public void update(String name, int quantity, double price) {
@@ -30,11 +29,13 @@ public class Lab07 {
 
     public void addItem(int id, String name, int quantity, double price) {
         inventory.add(new Item(id, name, quantity, price));
+        System.out.println("ID no: " + id +", added to inventory." );
     }
 
     public void updateItem(int id, String name, int quantity, double price) {
         for (Item item : inventory) {
             if (item.id == id) {
+                System.out.println("\nUpdating item with ID: " + id);
                 item.update(name, quantity, price);
                 return;
             }
@@ -43,21 +44,28 @@ public class Lab07 {
     }
 
     public void removeItem(int id) {
-        inventory.removeIf(item -> item.id == id);
+        if(inventory.removeIf(item -> item.id == id)){
+            System.out.println("\nRemoved item with ID: " + id);
+        }else{
+            System.out.println("\nItem not found.");
+        }
     }
 
     public void displayItems() {
         if (inventory.isEmpty()) {
             System.out.println("Inventory is empty.");
         } else {
-            inventory.forEach(Item::display);
+            System.out.println("\nThe items in inventory: ");
+            for (Item item : inventory) {
+                System.out.println(item);
+            }
         }
     }
 
     public void searchItem(int id) {
         for (Item item : inventory) {
             if (item.id == id) {
-                item.display();
+                System.out.println(item);
                 return;
             }
         }
@@ -65,51 +73,17 @@ public class Lab07 {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Lab07 lab07 = new Lab07();
+        Lab07 p = new Lab07();
 
-        while (true) {
-            System.out.println("\n1. Add Item\n2. Update Item\n3. Remove Item\n4. Display Items\n5. Search Item\n6. Exit");
-            int choice = scanner.nextInt();
-            if (choice == 1) {
-                System.out.print("Enter ID: ");
-                int id = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
-                System.out.print("Enter name: ");
-                String name = scanner.nextLine();
-                System.out.print("Enter quantity: ");
-                int quantity = scanner.nextInt();
-                System.out.print("Enter price: ");
-                double price = scanner.nextDouble();
-                lab07.addItem(id, name, quantity, price);
-            } else if (choice == 2) {
-                System.out.print("Enter ID to update: ");
-                int id = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
-                System.out.print("Enter new name: ");
-                String name = scanner.nextLine();
-                System.out.print("Enter new quantity: ");
-                int quantity = scanner.nextInt();
-                System.out.print("Enter new price: ");
-                double price = scanner.nextDouble();
-                lab07.updateItem(id, name, quantity, price);
-            } else if (choice == 3) {
-                System.out.print("Enter ID to remove: ");
-                int id = scanner.nextInt();
-                lab07.removeItem(id);
-            } else if (choice == 4) {
-                lab07.displayItems();
-            } else if (choice == 5) {
-                System.out.print("Enter ID to search: ");
-                int id = scanner.nextInt();
-                lab07.searchItem(id);
-            } else if (choice == 6) {
-                break;
-            } else {
-                System.out.println("Invalid choice.");
-            }
-        }
-        scanner.close();
+        p.addItem(101, "Paracetamol", 100, 2.5);
+        p.addItem(102, "Syringe", 200, 1.2);
+        p.displayItems();
+
+        p.updateItem(101, "Paracetamol 500mg", 150, 2.75);
+        p.searchItem(101);
+
+        p.removeItem(102);
+        p.displayItems();
     }
 }
 

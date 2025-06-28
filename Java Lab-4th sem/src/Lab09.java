@@ -13,11 +13,14 @@ class FixedStack implements Stack {
     }
 
     public void push(int item) {
-        if (top == stack.length - 1)
-            System.out.println("Stack Overflow");
-        else
+        if (top == stack.length - 1){
+            System.out.println("Stack Overflow. Couldn't push "+ item);
+        }else{
             stack[++top] = item;
+            System.out.println("Pushed " + item + " into fixed stack.");
+        }
     }
+
 
     public int pop() {
         if (top < 0) {
@@ -44,6 +47,7 @@ class DynamicStack implements Stack {
             stack = newStack;
         }
         stack[++top] = item;
+        System.out.println("Pushed " + item + " into dynamic stack.");
     }
 
     public int pop() {
@@ -61,20 +65,22 @@ public class Lab09 {
         Stack s2 = new DynamicStack();
 
         // Testing FixedStack
+        System.out.println("---Fixed Stack---");
         s1.push(1);
         s1.push(2);
         s1.push(3);
         s1.push(4); // Should show overflow
 
-        System.out.println("Fixed Stack pop: " + s1.pop());
+        System.out.println("\nFixed Stack pop: " + s1.pop());
         System.out.println("Fixed Stack pop: " + s1.pop());
 
         // Testing DynamicStack
+        System.out.println("\n---Dynamic Stack---");
         s2.push(10);
         s2.push(20);
         s2.push(30); // Should resize
 
-        System.out.println("Dynamic Stack pop: " + s2.pop());
+        System.out.println("\nDynamic Stack pop: " + s2.pop());
         System.out.println("Dynamic Stack pop: " + s2.pop());
     }
 }
